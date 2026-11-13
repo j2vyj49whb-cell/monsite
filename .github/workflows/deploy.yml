@@ -1,0 +1,22 @@
+name: Déploiement
+
+# Quand lancer le robot :
+on:
+  push:
+    branches: [main]   # à chaque commit sur la branche principale
+  workflow_dispatch:     # ou à la main, depuis l'onglet Actions
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mettre à jour le serveur
+        env:
+          CLE_SSH: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$CLE_SSH" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          # Empreinte du serveur : garantit qu'on parle bien à VOTRE serveur
+          echo "72.60.34.238 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAG+7RzDX/3pitz7irsudHAoy/3gndVEwRRaiGSOTW+5" > ~/.ssh/known_hosts
+          ssh deploy@72.60.34.238
