@@ -2,16 +2,52 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mon premier site</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 4rem auto; padding: 0 1rem; line-height: 1.6; }
-    h1 { color: #2563eb; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>InfraDojo</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <meta name="description" content="Formation interactive Ansible, Terraform et Tiering Active Directory, du premier pas au niveau professionnel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Bonjour 👋</h1>
-  <p>Ce site est hébergé sur mon propre serveur.</p>
-  <p>Version 4 — publiée depuis GitHub 🎉</p>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#home" aria-label="InfraDojo, accueil">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Infra<b>Dojo</b></span>
+      </a>
+      <nav class="topnav" aria-label="Modules">
+        <a href="#ansible" data-mod="ansible">Ansible</a>
+        <a href="#terraform" data-mod="terraform">Terraform</a>
+        <a href="#tiering" data-mod="tiering">Tiering</a>
+      </nav>
+      <div class="topbar-right">
+        <a class="belt-chip" href="#profil" id="beltChip" title="Ta progression">
+          <span class="belt-swatch" id="beltSwatch"></span>
+          <span class="belt-label" id="beltLabel">Ceinture blanche</span>
+          <span class="xp-label" id="xpLabel">0 XP</span>
+        </a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Changer de thème">◐</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <div class="toast-zone" id="toasts" aria-live="polite"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>InfraDojo · formation interactive Ansible, Terraform et Tiering AD</span>
+      <span>Ta progression est enregistrée dans ce navigateur.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/data/ansible.js"></script>
+  <script src="assets/js/data/terraform.js"></script>
+  <script src="assets/js/data/tiering.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
